@@ -4,7 +4,7 @@ html(lang="ar" dir="rtl")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        title المتجر - جميع المنتجات
+        title #{docTitle}
         link(rel="stylesheet" href="/css/main.css")
     
     body
@@ -26,7 +26,19 @@ html(lang="ar" dir="rtl")
                     p.subtitle اكتشف مجموعتنا المميزة من المنتجات
                 
                 .products-grid
-                    //- المنتجات سيتم إضافتها هنا ديناميكياً من خلال الراوتر
+                    if prods.length > 0
+                        each product in prods
+                            .product-card
+                                .product-image
+                                    img(src="https://computecheg.com/wp-content/uploads/2025/05/Nude-Boba-Milk-Tea-Logo-2025-05-19T172028.656.png" alt=product.title)
+                                .product-info
+                                    h3= product.title
+                                    p.product-description وصف مختصر للمنتج يوضح مميزاته الأساسية
+                                    .product-footer
+                                        span.price 299 ج.م
+                                        button.btn.btn-primary إضافة للسلة
+                    else
+                        p لا توجد منتجات متاحة حالياً
         
         footer.main-footer
             .container

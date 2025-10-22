@@ -1,0 +1,53 @@
+doctype html
+html(lang="ar" dir="rtl")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title #{pageTitle}
+        link(rel="stylesheet" href="/css/main.css")
+        link(rel="stylesheet" href="/css/product.css")
+    
+    body
+        header.main-header
+            .container
+                .logo
+                    h2 متجري
+                nav.main-header__nav
+                    ul.main-header__item-list
+                        li.main-header__item
+                            a(href="/") المتجر
+                        li.main-header__item
+                            a.active(href="/admin/add-product") إضافة منتج
+        
+        main
+            .container
+                .form-container
+                    .form-header
+                        h1 إضافة منتج جديد
+                        p أدخل تفاصيل المنتج الجديد
+                    
+                    form.product-form(action="/admin/add-product" method="POST")
+                        .form-control
+                            label(for="title") عنوان المنتج
+                            input(type="text" name="title" id="title" placeholder="أدخل اسم المنتج")
+                        
+                        .form-control
+                            label(for="price") السعر
+                            input(type="number" name="price" id="price" placeholder="0.00" step="0.01")
+                        
+                        .form-control
+                            label(for="description") الوصف
+                            textarea(name="description" id="description" rows="4" placeholder="وصف المنتج...")
+                        
+                        .form-control
+                            label(for="image") رابط الصورة
+                            input(type="url" name="image" id="image" placeholder="https://example.com/image.jpg")
+                        
+                        .form-actions
+                            button.btn.btn-primary(type="submit") إضافة المنتج
+                            button.btn.btn-secondary(type="reset") إعادة تعيين
+        
+        footer.main-footer
+            .container
+                p &copy; 2025 متجري. جميع الحقوق محفوظة.
