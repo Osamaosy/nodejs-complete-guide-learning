@@ -1,0 +1,33 @@
+doctype html
+html(lang="ar" dir="rtl")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title المتجر - جميع المنتجات
+        link(rel="stylesheet" href="/css/main.css")
+    
+    body
+        header.main-header
+            .container
+                .logo
+                    h2 متجري
+                nav.main-header__nav
+                    ul.main-header__item-list
+                        li.main-header__item
+                            a.active(href="/") المتجر
+                        li.main-header__item
+                            a(href="/admin/add-product") إضافة منتج
+        
+        main
+            .container
+                .page-header
+                    h1 منتجاتنا
+                    p.subtitle اكتشف مجموعتنا المميزة من المنتجات
+                
+                .products-grid
+                    //- المنتجات سيتم إضافتها هنا ديناميكياً من خلال الراوتر
+        
+        footer.main-footer
+            .container
+                p &copy; 2025 متجري. جميع الحقوق محفوظة.
