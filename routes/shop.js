@@ -7,8 +7,9 @@ const adminData = require("./admin");
 router.get("/", (req, res, next) => {
   res.render("shop", {
     prods: adminData.products,
-    pageTitle:  "shop",
+    pageTitle: "المتجر",
     path: "/",
+    pageCSS: "../public/css/product",
     hasProduct: adminData.products.length > 0,
   });
 });
