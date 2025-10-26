@@ -16,14 +16,14 @@
                     <% prods.forEach(product => { %>
                         <article class="product-card">
                             <div class="product-image">
-                                <img src="https://computecheg.com/wp-content/uploads/2025/05/Nude-Boba-Milk-Tea-Logo-2025-05-19T172028.656.png" alt="<%= product.title %>">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                             </div>
                             <div class="product-content">
                                 <h3><%= product.title %></h3>
                                 <p>$99.99</p>
-                                <p>وصف قصير للمنتج...</p>
+                                <p><%= product.description %></p>
                             </div>
-                            <div classs="product-actions">
+                            <div class="product-actions">
                                 <button class="btn">أضف للسلة</button>
                             </div>
                         </article>

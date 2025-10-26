@@ -1,4 +1,4 @@
-const Product = require('../modles/product');
+const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
     res.render('add-product', {
@@ -12,7 +12,8 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-    const product = new Product(req.body.title);
+    const { title, description, imageUrl } = req.body;
+    const product = new Product(title, description, imageUrl);
     product.save();
     res.redirect('/');
 };
@@ -23,7 +24,7 @@ exports.getProducts = (req, res, next) => {
             prods: products,
             pageTitle: 'Shop',
             path: '/',
-            pageCSS: null, // أضف هذا السطر
+            pageCSS: null,
             hasProducts: products.length > 0,
             activeShop: true,
             productCSS: true

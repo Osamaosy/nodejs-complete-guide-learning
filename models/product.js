@@ -18,15 +18,22 @@ const getProductsFromFile = cb => {
 };
 
 module.exports = class Product {
-    constructor(t) {
-        this.title = t;
-    }
+    constructor(title, description, imageUrl) {
+    this.title = title;
+    this.description = description || 'لا يوجد وصف';
+    this.imageUrl = imageUrl || 'https://1.bp.blogspot.com/-Fj68RV5Uj5E/WMFGfB7M9yI/AAAAAAAAAt8/B4UbQb6VmX8HYAa122EF3_0Uu7NXYesGwCLcB/s1600/hp%2Blaptop%2Bprice%2Bin%2Bsaudi%2Barabia.jpg';
+}
 
     save() {
         getProductsFromFile(products => {
             products.push(this);
             fs.writeFile(p, JSON.stringify(products), err => {
-                console.log(err);
+                if (err) {
+                    console.error('❌ Error saving:', err);
+                } 
+                else {
+                    console.log('✅ Product saved successfully!');
+                }
             });
         });
     }
