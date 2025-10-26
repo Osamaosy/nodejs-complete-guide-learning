@@ -1,10 +1,10 @@
-const products = [];
+const Product = require('../modles/product');
 
 exports.getAddProduct = (req, res, next) => {
-    res.render("add-product", {
-        pageTitle: "إضافة منتج",
-        path: "/admin/add-product",
-        pageCSS: "product",
+    res.render('add-product', {
+        pageTitle: 'Add Product',
+        path: '/admin/add-product',
+        pageCSS: 'product',
         formsCSS: true,
         productCSS: true,
         activeAddProduct: true
@@ -12,18 +12,21 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-    products.push({ title: req.body.title });
-    res.redirect("/");
+    const product = new Product(req.body.title);
+    product.save();
+    res.redirect('/');
 };
 
-exports.getProduct = (req, res, next) => {
-    res.render("shop", {
-        prods: products,
-        pageTitle: "المتجر",
-        path: "/",
-        hasProduct: products.length > 0,
-        pageCSS: null, // أضف هذا السطر
-        productCSS: true,
-        activeShop: true
+exports.getProducts = (req, res, next) => {
+    Product.fetchAll(products => {
+        res.render('shop', {
+            prods: products,
+            pageTitle: 'Shop',
+            path: '/',
+            pageCSS: null, // أضف هذا السطر
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+        });
     });
 };
