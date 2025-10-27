@@ -1,4 +1,6 @@
 <%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-detail.css">
+</head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
@@ -7,12 +9,11 @@
         <% if (prods.length > 0) { %>
             <div class="container">
                 <div class="page-header">
-                    <h1>منتجاتنا</h1>
-                    <p class="subtitle">اكتشف مجموعتنا المميزة من المنتجات</p>
+                    <h1>جميع المنتجات</h1>
+                    <p class="subtitle">تصفح كامل المجموعة</p>
                 </div>
 
                 <div class="products-grid">
-                    
                     <% prods.forEach(product => { %>
                         <article class="product-card">
                             <div class="product-image">
@@ -20,15 +21,19 @@
                             </div>
                             <div class="product-content">
                                 <h3><%= product.title %></h3>
-                                <p>$99.99</p>
-                                <p><%= product.description %></p>
+                                <p class="price">$<%= product.price %></p>
+                                <p class="product-description"><%= product.description %></p>
                             </div>
                             <div class="product-actions">
-                                <button class="btn">أضف للسلة</button>
+                                <a href="/products/<%= product.id %>">عرض التفاصيل</a>
+                                <form action="/cart" method="POST">
+                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                    <button type="submit" class="btn btn-primary">أضف للسلة</button>
+                                </form>
                             </div>
                         </article>
                     <% }); %>
-                    </div>
+                </div>
             </div>
         <% } else { %>
             <div class="container">
