@@ -1,15 +1,21 @@
 <header class="main-header">
     <div class="container">
         <div class="logo">
-            <h2>متجري</h2>
+            <h2>MY STOR</h2>
         </div>
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
                 <li class="main-header__item">
-                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">المتجر</a>
+                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">STOR</a>
                 </li>
                 <li class="main-header__item">
-                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">إضافة منتج</a>
+                    <a class="<%= path === '/admin/card' ? 'active' : '' %>" href="/card">Card</a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a>
                 </li>
             </ul>
         </nav>

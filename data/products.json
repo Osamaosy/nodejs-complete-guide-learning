@@ -1,1 +1,32 @@
-[{"title":"Laptop","description":"لا يوجد وصف","imageUrl":"https://1.bp.blogspot.com/-Fj68RV5Uj5E/WMFGfB7M9yI/AAAAAAAAAt8/B4UbQb6VmX8HYAa122EF3_0Uu7NXYesGwCLcB/s1600/hp%2Blaptop%2Bprice%2Bin%2Bsaudi%2Barabia.jpg"},{"title":"HP Laptop","description":"لينوفو لابتوب ايديا باد 5 انتل كور i5-1235U 16GB DDR4-3200 512GB SSD FHD، مقاس 15.6 انش، رمادي ستورم، DOS","imageUrl":"https://m.media-amazon.com/images/I/61CFs0tma6L._AC_SL1500_.jpg"},{"title":"ASUS Vivobook","description":"ASUS Vivobook Go 15 E1504FA-NJ003W – Ryzen 3 7320U – 4GB – 256GB – 15.6 Inch FHD – Windows 11","imageUrl":"https://assets-dubaiphone.dubaiphone.net/dp-prod/wp-content/uploads/2025/06/3.webp"},{"title":"OPPO","description":"لا يوجد وصف","imageUrl":"https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/17/1014331/1.jpg?6831"}]
+    [
+    {
+        "title": "Laptop",
+        "description": "لا يوجد وصف",
+        "imageUrl": "https://1.bp.blogspot.com/-Fj68RV5Uj5E/WMFGfB7M9yI/AAAAAAAAAt8/B4UbQb6VmX8HYAa122EF3_0Uu7NXYesGwCLcB/s1600/hp%2Blaptop%2Bprice%2Bin%2Bsaudi%2Barabia.jpg",
+        "price": "99.99"
+    },
+    {
+        "title": "HP Laptop",
+        "description": "لينوفو لابتوب ايديا باد 5 انتل كور i5-1235U 16GB DDR4-3200 512GB SSD FHD، مقاس 15.6 انش، رمادي ستورم، DOS",
+        "imageUrl": "https://m.media-amazon.com/images/I/61CFs0tma6L._AC_SL1500_.jpg",
+        "price": "99.99"
+    },
+    {
+        "title": "ASUS Vivobook",
+        "description": "ASUS Vivobook Go 15 E1504FA-NJ003W – Ryzen 3 7320U – 4GB – 256GB – 15.6 Inch FHD – Windows 11",
+        "imageUrl": "https://assets-dubaiphone.dubaiphone.net/dp-prod/wp-content/uploads/2025/06/3.webp",
+        "price": "99.99"
+    },
+    {
+        "title": "OPPO",
+        "description": "لا يوجد وصف",
+        "imageUrl": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/17/1014331/1.jpg?6831",
+        "price": "99.99"
+    },
+    {
+        "title": "realme c72",
+        "description": "realme C71 Dual SIM, 128GB, 6GB RAM, 4G LTE - Forest Owl",
+        "imageUrl": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/92/9285331/1.jpg?1867",
+        "price": "7000"
+    }
+]
