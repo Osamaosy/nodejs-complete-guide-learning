@@ -248,6 +248,29 @@ main {
     background-color: var(--primary-color);
     color: var(--white);
 }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: var(--white);
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.btn-warning {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #c7af2f;
+    box-shadow: 0 4px 12px rgba(219, 196, 65, 0.3);
+}
+
 /* Admin Products Actions */
 .admin-product-actions {
     padding: 0 25px 25px;
@@ -259,9 +282,24 @@ main {
     flex: 1;
 }
 
-.admin-product-actions .btn {
+.admin-product-actions .btn,
+.admin-product-actions a {
     width: 100%;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
+
+.admin-product-actions a {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.admin-product-actions a:hover {
+    background-color: #c7af2f;
+}
+
 /* Error Page */
 .error-container {
     display: grid;
@@ -369,5 +407,9 @@ main {
 
     .error-actions .btn {
         width: 100%;
+    }
+
+    .admin-product-actions {
+        flex-direction: column;
     }
 }
