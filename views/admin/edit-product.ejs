@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>إضافة منتج جديد</h1>
+                    <p>أدخل تفاصيل المنتج الجديد</p>
+                </div>
+
+                <form class="product-form" action="/admin/add-product" method="POST">
+                    <div class="form-control">
+                        <label for="title">عنوان المنتج</label>
+                        <input type="text" name="title" id="title" placeholder="أدخل اسم المنتج">
+                    </div>
+
+                    <div class="form-control">
+                        <label for="price">السعر</label>
+                        <input type="number" name="price" id="price" placeholder="0.00" step="0.01">
+                    </div>
+
+                    <div class="form-control">
+                        <label for="description">الوصف</label>
+                        <textarea name="description" id="description" rows="4" placeholder="وصف المنتج..."></textarea>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="image">رابط الصورة</label>
+                        <input type="url" name="imageUrl" id="image" placeholder="https://example.com/image.jpg">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">إضافة المنتج</button>
+                        <button type="reset" class="btn btn-secondary">إعادة تعيين</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+<%- include('../includes/end.ejs') %>

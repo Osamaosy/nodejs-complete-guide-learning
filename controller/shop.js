@@ -1,6 +1,6 @@
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
-// دالة مساعدة لتجنب التكرار
 const renderProductsPage = (res, view, path, pageTitle, products, additionalData = {}) => {
     res.render(view, {
         prods: products,
@@ -52,8 +52,7 @@ exports.getCart = (req, res, next) => {
 exports.postCart = (req, res, next) => {
     const prodId = req.body.productId;
     Product.findById(prodId, product => {
-        // هنا منطق إضافة المنتج للسلة
-        console.log('Added to cart:', product);
+        Cart.addProduct(prodId, product.price)
     });
     res.redirect('/cart');
 };
