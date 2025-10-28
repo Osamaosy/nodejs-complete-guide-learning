@@ -97,7 +97,7 @@ dist
 
 # Gatsby build output
 .cache/
-public
+#public
 
 # SvelteKit build output
 .svelte-kit
@@ -111,7 +111,7 @@ public/build/
 # Production builds
 /build
 /dist
-/public
+#/public
 
 # OS generated files
 .DS_Store
