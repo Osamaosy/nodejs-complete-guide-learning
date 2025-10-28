@@ -7,12 +7,11 @@
         <% if (prods.length > 0) { %>
             <div class="container">
                 <div class="page-header">
-                    <h1>منتجاتنا</h1>
+                    <h1>مرحباً بك في متجرنا</h1>
                     <p class="subtitle">اكتشف مجموعتنا المميزة من المنتجات</p>
                 </div>
 
                 <div class="products-grid">
-                    
                     <% prods.forEach(product => { %>
                         <article class="product-card">
                             <div class="product-image">
@@ -24,11 +23,15 @@
                                 <p><%= product.description %></p>
                             </div>
                             <div class="product-actions">
-                                <button class="btn">أضف للسلة</button>
+                                <a href="/products/<%= product.id %>" class="btn btn-secondary">عرض التفاصيل</a>
+                                <form action="/cart" method="POST">
+                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                    <button type="submit" class="btn btn-primary">أضف للسلة</button>
+                                </form>
                             </div>
                         </article>
                     <% }); %>
-                    </div>
+                </div>
             </div>
         <% } else { %>
             <div class="container">

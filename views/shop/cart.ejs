@@ -10,68 +10,15 @@
                 <p class="subtitle">راجع منتجاتك قبل الدفع</p>
             </div>
 
-            <div class="cart-container">
-                <!-- مثال: لو السلة فيها منتجات -->
-                <div class="cart-items">
-                    <div class="cart-item">
-                        <div class="cart-item-image">
-                            <img src="https://via.placeholder.com/100" alt="Product">
-                        </div>
-                        <div class="cart-item-details">
-                            <h3>اسم المنتج</h3>
-                            <p class="cart-item-price">$99.99</p>
-                        </div>
-                        <div class="cart-item-quantity">
-                            <button class="btn-quantity">-</button>
-                            <span>1</span>
-                            <button class="btn-quantity">+</button>
-                        </div>
-                        <div class="cart-item-total">
-                            <p>$99.99</p>
-                        </div>
-                        <form action="/cart-delete-item" method="POST" class="cart-item-delete">
-                            <button type="submit" class="btn-delete">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="cart-summary">
-                    <h2>ملخص الطلب</h2>
-                    <div class="cart-summary-row">
-                        <span>المجموع الفرعي:</span>
-                        <span>$99.99</span>
-                    </div>
-                    <div class="cart-summary-row">
-                        <span>الشحن:</span>
-                        <span>$5.00</span>
-                    </div>
-                    <div class="cart-summary-row cart-summary-total">
-                        <span>الإجمالي:</span>
-                        <span>$104.99</span>
-                    </div>
-                    <form action="/create-order" method="POST">
-                        <button type="submit" class="btn btn-primary btn-block">إتمام الطلب</button>
-                    </form>
-                    <a href="/" class="btn btn-secondary btn-block">مواصلة التسوق</a>
-                </div>
-            </div>
-
-            <!-- لو السلة فاضية -->
-            <!-- 
+            <!-- سلة فارغة -->
             <div class="empty-cart">
                 <svg width="100" height="100" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5z"/>
                 </svg>
                 <h2>السلة فارغة</h2>
                 <p>لم تقم بإضافة أي منتجات بعد</p>
-                <a href="/" class="btn btn-primary">تصفح المنتجات</a>
+                <a href="/products" class="btn btn-primary">تصفح المنتجات</a>
             </div>
-            -->
         </div>
     </main>
 

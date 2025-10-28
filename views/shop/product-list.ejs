@@ -1,6 +1,4 @@
 <%- include('../includes/head.ejs') %>
-<link rel="stylesheet" href="/css/product-detail.css">
-</head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
@@ -10,7 +8,7 @@
             <div class="container">
                 <div class="page-header">
                     <h1>جميع المنتجات</h1>
-                    <p class="subtitle">تصفح كامل المجموعة</p>
+                    <p class="subtitle">تصفح كامل المجموعة المتاحة</p>
                 </div>
 
                 <div class="products-grid">
@@ -21,11 +19,11 @@
                             </div>
                             <div class="product-content">
                                 <h3><%= product.title %></h3>
-                                <p class="price">$<%= product.price %></p>
-                                <p class="product-description"><%= product.description %></p>
+                                <p>$<%= product.price %></p>
+                                <p><%= product.description %></p>
                             </div>
                             <div class="product-actions">
-                                <a href="/products/<%= product.id %>">عرض التفاصيل</a>
+                                <a href="/products/<%= product.id %>" class="btn btn-secondary">عرض التفاصيل</a>
                                 <form action="/cart" method="POST">
                                     <input type="hidden" name="productId" value="<%= product.id %>">
                                     <button type="submit" class="btn btn-primary">أضف للسلة</button>

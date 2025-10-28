@@ -1,16 +1,73 @@
 [
   {
-    "title": "OPPO",
-    "description": "oppo C71 Dual SIM, 128GB, 6GB RAM, 4G LTE - Forest Owl",
-    "imageUrl": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/17/1014331/1.jpg?6831",
-    "price": "99.99",
-    "id": "5"
+    "title": "OPPO A78",
+    "description": "OPPO A78 Dual SIM, 128GB, 8GB RAM — Aqua Green",
+    "imageUrl": "https://picsum.photos/id/237/680/680",
+    "price": "9999",
+    "id": "1",
+    "category": "Smartphones"
   },
   {
+    "title": "realme C74",
+    "description": "realme C74 Dual SIM, 128GB, 6GB RAM — Forest Green",
+    "imageUrl": "https://picsum.photos/id/1025/680/680",
+    "price": "7000",
+    "id": "2",
+    "category": "Smartphones"
+  },
+  {
+    "title": "Samsung Galaxy A15",
+    "description": "Samsung Galaxy A15, 128GB, 6GB RAM — Yellow",
+    "imageUrl": "https://picsum.photos/id/1069/680/680",
+    "price": "8769",
+    "id": "3",
+    "category": "Smartphones"
+  },
+  {
+    "title": "Xiaomi Redmi Note 13",
+    "description": "Xiaomi Redmi Note 13, 256GB, 8GB RAM — Midnight Black",
+    "imageUrl": "https://picsum.photos/id/100/680/680",
+    "price": "9500",
+    "id": "4",
+    "category": "Smartphones"
+  },
+  {
+    "title": "Apple AirPods Pro (2nd Gen)",
+    "description": "AirPods Pro 2 — MagSafe Charging Case (USB-C)",
+    "imageUrl": "https://picsum.photos/id/1011/680/680",
+    "price": "14500",
+    "id": "5",
+    "category": "Accessories"
+  },
+  {
+    "title": "Samsung Galaxy Watch 6",
+    "description": "Galaxy Watch 6 44mm — Bluetooth Smartwatch",
+    "imageUrl": "https://picsum.photos/id/1027/680/680",
+    "price": "12500",
     "id": "6",
-    "title": "realme c72",
-    "description": "realme C71 Dual SIM, 128GB, 6GB RAM, 4G LTE - Forest Owl",
-    "imageUrl": "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/92/9285331/1.jpg?1867",
-    "price": "7000"
+    "category": "Wearables"
+  },
+  {
+    "title": "Huawei FreeBuds SE 2",
+    "description": "FreeBuds SE 2 — True Wireless Earbuds",
+    "imageUrl": "https://picsum.photos/id/883/680/680",
+    "price": "2499",
+    "id": "7",
+    "category": "Accessories"
+  },
+  {
+    "title": "Infinix Note 40 Pro",
+    "description": "Infinix Note 40 Pro, 256GB, 8GB RAM — Vintage Green",
+    "imageUrl": "https://picsum.photos/id/433/680/680",
+    "price": "10500",
+    "id": "8",
+    "category": "Smartphones"
+  },
+  {
+    "title": "Infinix Note 40 Pro",
+    "description": "Infinix Note 40 Pro, 256GB, 8GB RAM — Vintage Green",
+    "imageUrl": "https://picsum.photos/id/433/680/680",
+    "price": "34534",
+    "id": "0.3308937359432911"
   }
 ]

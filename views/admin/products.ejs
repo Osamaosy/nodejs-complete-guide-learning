@@ -1,48 +1,44 @@
 <%- include('../includes/head.ejs') %>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
+<body>
+    <%- include('../includes/navigation.ejs') %>
 
-            <main>
-                <% if (prods.length> 0) { %>
-                    <div class="container">
-                        <div class="page-header">
-                            <h1>منتجاتنا</h1>
-                            <p class="subtitle">اكتشف مجموعتنا المميزة من المنتجات</p>
-                        </div>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="container">
+                <div class="page-header">
+                    <h1>إدارة المنتجات</h1>
+                    <p class="subtitle">تحكم في منتجاتك وقم بتعديلها</p>
+                </div>
 
-                        <div class="products-grid">
-                            <% prods.forEach(product=> { %>
-                                <article class="product-card">
-                                    <div class="product-image">
-                                        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
-                                    </div>
-                                    <div class="product-content">
-                                        <h3>
-                                            <%= product.title %>
-                                        </h3>
-                                        <p>$<%= product.price %></p>
-                                        <p>
-                                            <%= product.description %>
-                                        </p>
-                                    </div>
-                                    <div class="product-actions admin-product-actions">
-                                        <a href="/admin/edit-product/<%= product.id %>?edit=true">Edit</a>
-                                        <form action="/admin/delete-product" method="POST">
-                                            <input type="hidden" name="productId" value="<%= product.id %>">
-                                            <button type="submit">Delete</button>
-                                        </form>
-                                    </div>
-                                </article>
-                                <% }); %>
-                        </div>
-                    </div>
-                    <% } else { %>
-                        <div class="container">
-                            <h2 class="no-products">لا توجد منتجات متاحة حاليًا</h2>
-                        </div>
-                        <% } %>
-            </main>
+                <div class="products-grid">
+                    <% prods.forEach(product => { %>
+                        <article class="product-card">
+                            <div class="product-image">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+                            </div>
+                            <div class="product-content">
+                                <h3><%= product.title %></h3>
+                                <p>$<%= product.price %></p>
+                                <p><%= product.description %></p>
+                            </div>
+                            <div class="admin-product-actions">
+                                <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn btn-warning">تعديل</a>
+                                <form action="/admin/delete-product" method="POST">
+                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </form>
+                            </div>
+                        </article>
+                    <% }); %>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="container">
+                <h2 class="no-products">لا توجد منتجات متاحة حاليًا</h2>
+            </div>
+        <% } %>
+    </main>
 
-            <%- include('../includes/end.ejs') %>
-    </body>
+    <%- include('../includes/end.ejs') %>
+</body>
