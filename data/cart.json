@@ -1,10 +1,10 @@
 {
   "products": [
     {
-      "id": "5",
+      "id": "3",
       "qty": 2,
-      "price": 99.99
+      "price": 8769
     }
   ],
-  "totalPrice": 199.98
+  "totalPrice": 17538
 }

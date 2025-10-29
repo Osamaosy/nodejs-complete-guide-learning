@@ -32,14 +32,6 @@
     "category": "Smartphones"
   },
   {
-    "title": "Apple AirPods Pro (2nd Gen)",
-    "description": "AirPods Pro 2 — MagSafe Charging Case (USB-C)",
-    "imageUrl": "https://picsum.photos/id/1011/680/680",
-    "price": "14500",
-    "id": "5",
-    "category": "Accessories"
-  },
-  {
     "title": "Samsung Galaxy Watch 6",
     "description": "Galaxy Watch 6 44mm — Bluetooth Smartwatch",
     "imageUrl": "https://picsum.photos/id/1027/680/680",
@@ -62,12 +54,5 @@
     "price": "10500",
     "id": "8",
     "category": "Smartphones"
-  },
-  {
-    "title": "Infinix Note 40 Pro",
-    "description": "Infinix Note 40 Pro, 256GB, 8GB RAM — Vintage Green",
-    "imageUrl": "https://picsum.photos/id/433/680/680",
-    "price": "34534",
-    "id": "0.3308937359432911"
   }
 ]

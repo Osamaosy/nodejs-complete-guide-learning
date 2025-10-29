@@ -1,3 +1,4 @@
+const { fileLoader } = require('ejs');
 const fs = require('fs');
 const path = require('path');
 
@@ -126,4 +127,15 @@ module.exports = class Cart {
             }
         });
     }
+
+    static getcart(cb){
+        fs.readFile(p, (err, fileContent));
+        const cart = JSON.parse(fileContent);
+        if (err){
+            cb(null);
+        }else{
+            cb(cart)
+        }
+
+}
 };
