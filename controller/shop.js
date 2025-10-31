@@ -15,51 +15,57 @@ const renderProductsPage = (res, view, path, pageTitle, products, additionalData
 };
 
 exports.getProducts = (req, res, next) => {
-    Product.fetchAll(products => {
-        renderProductsPage(res, 'shop/product-list', '/products', 'All Products', products);
-    });
+    Product.fetchAll()
+        .then(([rows, fieldData]) => {
+            renderProductsPage(res, 'shop/index', '/', 'Shop', rows, { pageCSS: 'product' });
+        })
+        .catch((err) => console.log(err))
 };
 
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
-    Product.findById(prodId, product => {
-        if (!product) {
-            return res.redirect('/');
-        }
-        res.render('shop/product-detail', {
-            product: product,
-            pageTitle: product.title,
-            path: '/products',
-            pageCSS: 'product'
-        });
-    });
+    Product.findById(prodId)
+        .then(([product]) => {
+            if (!product) {
+                return res.redirect('/');
+            }
+            res.render('shop/product-detail', {
+                product: product[0],
+                pageTitle: product.title,
+                path: '/products',
+                pageCSS: 'product'
+            });
+        })
+        .catch((err) => console.log(err))
+
 };
+
 
 exports.getIndex = (req, res, next) => {
     Product.fetchAll()
-    .then(([rows, fieldData])=> {
+        .then(([rows, fieldData]) => {
             renderProductsPage(res, 'shop/index', '/', 'Shop', rows, { pageCSS: 'product' });
-    })
-    .catch((err)=> console.log(err) )
+        })
+        .catch((err) => console.log(err))
 };
 
 exports.getCart = (req, res, next) => {
     Cart.getCart(cart => {
         Product.fetchAll(products => {
             const cartProducts = [];
-            for(product of products){
+            for (product of products) {
                 const cartProductData = cart.products.find(prod => prod.id === product.id);
-                if (cartProductData){
-                    cartProducts.push({productData: product, qty: cartProductData.qty })
+                if (cartProductData) {
+                    cartProducts.push({ productData: product, qty: cartProductData.qty })
                 }
             }
-            
+
             // ✅ حساب الإجمالي
             let totalPrice = 0;
             cartProducts.forEach(item => {
                 totalPrice += item.productData.price * item.qty;
             });
-            
+
             res.render('shop/cart', {
                 path: '/cart',
                 pageTitle: 'Your Cart',
