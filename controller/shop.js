@@ -36,9 +36,11 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-    Product.fetchAll(products => {
-        renderProductsPage(res, 'shop/index', '/', 'Shop', products, { pageCSS: 'product' });
-    });
+    Product.fetchAll()
+    .then(([rows, fieldData])=> {
+            renderProductsPage(res, 'shop/index', '/', 'Shop', rows, { pageCSS: 'product' });
+    })
+    .catch((err)=> console.log(err) )
 };
 
 exports.getCart = (req, res, next) => {
