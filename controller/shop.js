@@ -1,96 +1,103 @@
 const Product = require('../models/product');
 const Cart = require('../models/cart');
 
-const renderProductsPage = (res, view, path, pageTitle, products, additionalData = {}) => {
-    res.render(view, {
-        prods: products,
-        pageTitle: pageTitle,
-        path: path,
-        pageCSS: additionalData.pageCSS || null,
-        hasProducts: products.length > 0,
-        activeShop: path === '/',
-        productCSS: true,
-        ...additionalData
-    });
-};
-
 exports.getProducts = (req, res, next) => {
-    Product.fetchAll()
-        .then(([rows, fieldData]) => {
-            renderProductsPage(res, 'shop/index', '/', 'Shop', rows, { pageCSS: 'product' });
+    Product.findAll()
+        .then(products => {
+            res.render('shop/product-list', {
+                prods: products,
+                pageTitle: 'All Products',
+                path: '/products',
+                pageCSS: null
+            });
         })
-        .catch((err) => console.log(err))
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
-    Product.findById(prodId)
-        .then(([product]) => {
-            if (!product) {
-                return res.redirect('/');
-            }
+    Product.findByPk(prodId)  // ✅ استخدم findByPk بدلاً من findById
+        .then(product => {
             res.render('shop/product-detail', {
-                product: product[0],
+                product: product,
                 pageTitle: product.title,
                 path: '/products',
-                pageCSS: 'product'
+                pageCSS: 'product-detail'
             });
         })
-        .catch((err) => console.log(err))
-
+        .catch(err => console.log(err));
 };
 
-
 exports.getIndex = (req, res, next) => {
-    Product.fetchAll()
-        .then(([rows, fieldData]) => {
-            renderProductsPage(res, 'shop/index', '/', 'Shop', rows, { pageCSS: 'product' });
+    Product.findAll()
+        .then(products => {
+            res.render('shop/index', {
+                prods: products,
+                pageTitle: 'Shop',
+                path: '/',
+                pageCSS: null
+            });
         })
-        .catch((err) => console.log(err))
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 exports.getCart = (req, res, next) => {
     Cart.getCart(cart => {
-        Product.fetchAll(products => {
-            const cartProducts = [];
-            for (product of products) {
-                const cartProductData = cart.products.find(prod => prod.id === product.id);
-                if (cartProductData) {
-                    cartProducts.push({ productData: product, qty: cartProductData.qty })
+        Product.findAll()  // ✅ استخدم findAll بدلاً من fetchAll
+            .then(products => {
+                const cartProducts = [];
+                for (let product of products) {
+                    const cartProductData = cart.products.find(
+                        prod => prod.id === product.id.toString()
+                    );
+                    if (cartProductData) {
+                        cartProducts.push({ 
+                            productData: product, 
+                            qty: cartProductData.qty 
+                        });
+                    }
                 }
-            }
-
-            // ✅ حساب الإجمالي
-            let totalPrice = 0;
-            cartProducts.forEach(item => {
-                totalPrice += item.productData.price * item.qty;
-            });
-
-            res.render('shop/cart', {
-                path: '/cart',
-                pageTitle: 'Your Cart',
-                pageCSS: 'product-detail',
-                products: cartProducts,
-                totalPrice: totalPrice.toFixed(2)  // ✅ إرسال الإجمالي
+                
+                // حساب الإجمالي
+                let totalPrice = 0;
+                cartProducts.forEach(item => {
+                    totalPrice += parseFloat(item.productData.price) * item.qty;
+                });
+                
+                res.render('shop/cart', {
+                    path: '/cart',
+                    pageTitle: 'Your Cart',
+                    pageCSS: 'product-detail',
+                    products: cartProducts,
+                    totalPrice: totalPrice.toFixed(2)
+                });
             })
-        })
+            .catch(err => console.log(err));
     });
 };
 
 exports.postCart = (req, res, next) => {
     const prodId = req.body.productId;
-    Product.findById(prodId, product => {
-        Cart.addProduct(prodId, product.price)
-    });
-    res.redirect('/cart');
+    Product.findByPk(prodId)  // ✅ استخدم findByPk
+        .then(product => {
+            Cart.addProduct(prodId, product.price);
+            res.redirect('/cart');
+        })
+        .catch(err => console.log(err));
 };
 
 exports.postCartDeleteProduct = (req, res, next) => {
     const prodId = req.body.productId;
-    Product.findById(prodId, product => {
-        Cart.deleteProduct(prodId, product.price);
-        res.redirect('/cart');
-    });
+    Product.findByPk(prodId)  // ✅ استخدم findByPk
+        .then(product => {
+            Cart.deleteProduct(prodId, product.price);
+            res.redirect('/cart');
+        })
+        .catch(err => console.log(err));
 };
 
 exports.getOrders = (req, res, next) => {

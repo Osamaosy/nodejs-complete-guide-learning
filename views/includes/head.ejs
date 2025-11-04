@@ -5,7 +5,7 @@
     <title><%= pageTitle %></title>
     <link rel="stylesheet" href="/css/main.css">
     
-    <% if (pageCSS) { %>
+    <% if (typeof pageCSS !== 'undefined' && pageCSS) { %>
         <link rel="stylesheet" href="/css/<%= pageCSS %>.css">
     <% } %>
 </head>
