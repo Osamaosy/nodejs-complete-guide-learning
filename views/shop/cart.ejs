@@ -17,28 +17,28 @@
                         <% products.forEach(item => { %>
                             <div class="cart-item">
                                 <div class="cart-item-image">
-                                    <img src="<%= item.productData.imageUrl %>" alt="<%= item.productData.title %>">
+                                    <img src="<%= item.imageUrl %>" alt="<%= item.title %>">
                                 </div>
                                 <div class="cart-item-details">
-                                    <h3><%= item.productData.title %></h3>
-                                    <p class="cart-item-price">$<%= item.productData.price %></p>
+                                    <h3><%= item.title %></h3>
+                                    <p class="cart-item-price">$<%= item.price %></p>
                                 </div>
                                 <div class="cart-item-quantity">
                                     <form action="/cart-reduce-item" method="POST" style="display: inline;">
-                                        <input type="hidden" name="productId" value="<%= item.productData.id %>">
+                                        <input type="hidden" name="productId" value="<%= item.id %>">
                                         <button type="submit" class="btn-quantity">-</button>
                                     </form>
-                                    <span><%= item.qty %></span>
+                                    <span><%= item.cartItem.quantity %></span>
                                     <form action="/cart" method="POST" style="display: inline;">
-                                        <input type="hidden" name="productId" value="<%= item.productData.id %>">
+                                        <input type="hidden" name="productId" value="<%= item.id %>">
                                         <button type="submit" class="btn-quantity">+</button>
                                     </form>
                                 </div>
                                 <div class="cart-item-total">
-                                    <p>$<%= (item.productData.price * item.qty).toFixed(2) %></p>
+                                    <p>$<%= (item.price * item.cartItem.quantity).toFixed(2) %></p>
                                 </div>
                                 <form action="/cart-delete-item" method="POST" class="cart-item-delete">
-                                    <input type="hidden" name="productId" value="<%= item.productData.id %>">
+                                    <input type="hidden" name="productId" value="<%= item.id %>">
                                     <button type="submit" class="btn-delete">
                                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
